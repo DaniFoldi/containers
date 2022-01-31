@@ -1,7 +1,7 @@
 FROM node:alpine as base
 RUN mkdir -p /srv/server
 WORKDIR /srv/server
-COPY package.json,package-lock.json /srv/server
+COPY package.json package-lock.json /srv/server
 RUN npm ci
 
 FROM base as source
