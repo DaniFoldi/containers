@@ -7,6 +7,6 @@ RUN npm ci
 FROM base as source
 COPY . /srv/server
 
-FROM target as app
+FROM source as app
 ENTRYPOINT ["npm"]
 CMD ["start"]
