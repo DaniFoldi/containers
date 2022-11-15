@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y lsb-core tmux fish openvpn nano curl wget htop openssh openssh-server && \
+    apt-get install -y lsb-core tmux fish openvpn nano curl wget htop openssh-server && \
     mkdir -p /var/run/sshd && \
     mkdir -p /usr/share/keyrings && \
     chmod 755 /usr/share/keyrings && \
