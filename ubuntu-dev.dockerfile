@@ -1,7 +1,8 @@
 FROM ubuntu:22.04
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y lsb-core tmux fish openvpn nano curl wget htop && \
+    apt-get install -y lsb-core tmux fish openvpn nano curl wget htop openssh openssh-server && \
+    mkdir -p /var/run/sshd && \
     mkdir -p /usr/share/keyrings && \
     chmod 755 /usr/share/keyrings && \
     mkdir -p /root/.ssh && \
@@ -15,4 +16,5 @@ RUN apt-get update && \
     echo 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared jammy main' > /etc/apt/sources.list.d/cloudflared.list && \
     apt-get update && \
     apt-get install -y cloudflared gh
+EXPOSE 22
 CMD ["cloudflared"]
