@@ -16,6 +16,6 @@ RUN apt-get update && \
     echo 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared jammy main' > /etc/apt/sources.list.d/cloudflared.list && \
     apt-get update && \
     apt-get install -y cloudflared gh && \
-    unminimize
+    yes | unminimize
 EXPOSE 22
 CMD ["cloudflared"]
